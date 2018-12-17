@@ -14,10 +14,7 @@
 | Name                            | Required | Value        | Purpose                                  |
 | ------------------------------- | -------- | ------------ | ---------------------------------------- |
 | `DEBUG`                         | false    | report-api:* | Debug                                    |
-| `NODE_ENV`                      | true     |              | Environment name                         |
-| `REDIS_PORT`                    | true     |              | Redis Cache Connection                   |
-| `REDIS_HOST`                    | true     |              | Redis Cache Connection                   |
-| `REDIS_KEY`                     | true     |              | Redis Cache Connection                   |
+| `NODE_ENV`                      | false    |              | Environment name                         |
 | `SQLSERVER_DATABASE`            | true     |              | MS SQL Server database name            |
 | `SQLSERVER_USERNAME`            | true     |              | MS SQL Server access username        |
 | `SQLSERVER_PASSWORD`            | true     |              | MS SQL Server access password        |
