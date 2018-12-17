@@ -15,7 +15,7 @@ describe('notFoundHandler.default()', () => {
     beforeEach(() => {
         nock.cleanAll();
         nock.disableNetConnect();
-        sandbox = sinon.sandbox.create();
+        sandbox = sinon.createSandbox();
     });
 
     afterEach(() => {

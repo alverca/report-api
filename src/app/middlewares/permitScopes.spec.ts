@@ -10,20 +10,20 @@ import * as permitScopes from './permitScopes';
 let sandbox: sinon.SinonSandbox;
 
 describe('permitScopes.default()', () => {
-    let resourceServerIdentifier = process.env.RESOURECE_SERVER_IDENTIFIER;
+    let resourceServerIdentifier = process.env.RESOURCE_SERVER_IDENTIFIER;
 
     beforeEach(() => {
-        sandbox = sinon.sandbox.create();
-        resourceServerIdentifier = process.env.RESOURECE_SERVER_IDENTIFIER;
+        sandbox = sinon.createSandbox();
+        resourceServerIdentifier = process.env.RESOURCE_SERVER_IDENTIFIER;
     });
 
     afterEach(() => {
         sandbox.restore();
-        process.env.RESOURECE_SERVER_IDENTIFIER = resourceServerIdentifier;
+        process.env.RESOURCE_SERVER_IDENTIFIER = resourceServerIdentifier;
     });
 
-    it('RESOURECE_SERVER_IDENTIFIERが未定義であればエラーパラメーターと共にnextが呼ばれるはず', async () => {
-        delete process.env.RESOURECE_SERVER_IDENTIFIER;
+    it('RESOURCE_SERVER_IDENTIFIERが未定義であればエラーパラメーターと共にnextが呼ばれるはず', async () => {
+        delete process.env.RESOURCE_SERVER_IDENTIFIER;
         const scopes = ['scope'];
         const params = {
             req: { user: { scopes: [] } },
@@ -42,7 +42,7 @@ describe('permitScopes.default()', () => {
     it('スコープが十分であればエラーなしでnextが呼ばれるはず', async () => {
         const scopes = ['scope'];
         const params = {
-            req: { user: { scopes: scopes.map((scope) => `${process.env.RESOURECE_SERVER_IDENTIFIER}/${scope}`) } },
+            req: { user: { scopes: scopes.map((scope) => `${process.env.RESOURCE_SERVER_IDENTIFIER}/${scope}`) } },
             res: {},
             next: () => undefined
         };
