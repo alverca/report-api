@@ -11,6 +11,7 @@
         "arrow-return-shorthand": [
             true
         ],
+        "await-promise": [true, "Bluebird"],
         "curly": true,
         "export-name": false,
         "import-name": false,
