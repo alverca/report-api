@@ -38,21 +38,17 @@ incomeRouter.post(
     permitScopes(['admin']),
     (req, __, next) => {
         req.checkBody('*.id').exists();
-        req.checkBody('*.opponentSubjectCd').exists();
-        req.checkBody('*.opponentSubjectName').exists();
         req.checkBody('*.subjectDetailName').exists();
         req.checkBody('*.subjectDetailCd').exists();
         req.checkBody('*.subjectGroupName').exists();
         req.checkBody('*.subjectGroupCd').exists();
         req.checkBody('*.subjectCd').exists();
         req.checkBody('*.subjectName').exists();
-        req.checkBody('*.movieCd').exists();
-        req.checkBody('*.movieName').exists();
         req.checkBody('*.theaterCd').exists();
         req.checkBody('*.theaterName').exists();
         req.checkBody('*.date').exists().isISO8601();
-        req.checkBody('*.amount').exists().isNumeric();
-        req.checkBody('*.quantity').exists().isNumeric();
+        req.checkBody('*.amount').optional({ checkFalsy: true }).isNumeric();
+        req.checkBody('*.quantity').optional({ checkFalsy: true }).isNumeric();
         next();
     },
     validator,
